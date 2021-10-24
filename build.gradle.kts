@@ -18,3 +18,6 @@ tasks.withType<JavaCompile> {
 application {
     mainClass.set("hexlet.code.App")
 }
+
+val run: JavaExec by tasks
+run.standardInput = System.`in`
