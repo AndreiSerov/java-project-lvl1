@@ -15,7 +15,7 @@ public class ProgressionGame {
 
 
     public static void play(Scanner sc, String playerName) {
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println("What number is missing in the progression?");
         for (int i = 0; i < GAME_COUNTS; i++) {
             int[] progression = generateProgression();
             int hiddenNumberIndex = randInt(progression.length);

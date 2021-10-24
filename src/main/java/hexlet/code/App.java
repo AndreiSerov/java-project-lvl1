@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class App {
     private static final int CALC = 3;
     private static final int GCD = 4;
     private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
 
     public static void main(String[] args) {
         printMenu();
@@ -24,14 +26,13 @@ public class App {
         }
 
         String playerName = Cli.greet(SC);
-        if (choice == EVEN) {
-            EvenGame.play(SC, playerName);
-        } else if (choice == CALC) {
-            CalcGame.play(SC, playerName);
-        } else if (choice == GCD) {
-            GcdGame.play(SC, playerName);
-        } else if (choice == PROGRESSION) {
-            ProgressionGame.play(SC, playerName);
+        switch (choice) {
+            case EVEN -> EvenGame.play(SC, playerName);
+            case CALC -> CalcGame.play(SC, playerName);
+            case GCD -> GcdGame.play(SC, playerName);
+            case PROGRESSION -> ProgressionGame.play(SC, playerName);
+            case PRIME -> PrimeGame.play(SC, playerName);
+            default -> throw new IllegalStateException("Unexpected value: " + choice);
         }
     }
 
@@ -42,6 +43,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.println("Your choice:");
     }
