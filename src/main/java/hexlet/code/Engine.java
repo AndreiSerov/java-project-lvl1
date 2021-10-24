@@ -35,4 +35,8 @@ public class Engine {
         return RANDOM.nextInt(range);
     }
 
+    public static int randInt(int start, int end) {
+        return RANDOM.nextInt(start, end);
+    }
+
 }

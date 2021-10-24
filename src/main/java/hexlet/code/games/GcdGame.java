@@ -7,8 +7,6 @@ import static hexlet.code.Engine.isPlayerLose;
 import static hexlet.code.Engine.printCongratulations;
 import static hexlet.code.Engine.printQuestion;
 import static hexlet.code.Engine.randInt;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
 import static java.lang.String.format;
 
 public class GcdGame {
@@ -21,7 +19,7 @@ public class GcdGame {
             printQuestion(format("%d %d", x, y));
 
             int expected = calculateGcd(x, y);
-            String actual = sc.next();
+            int actual = sc.nextInt();
             if (isPlayerLose(expected, actual, playerName)) {
                 return;
             }
