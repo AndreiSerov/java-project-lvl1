@@ -23,11 +23,12 @@ tasks {
             html.required.set(true)
         }
     }
+
+    named<JavaExec>("run") {
+        standardInput = System.`in`
+    }
 }
 
 application {
     mainClass.set("hexlet.code.App")
 }
-
-val run: JavaExec by tasks
-run.standardInput = System.`in`
