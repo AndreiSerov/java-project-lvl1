@@ -3,8 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.isPlayerLoose;
-import static hexlet.code.Engine.printAnswer;
+import static hexlet.code.Engine.isPlayerLose;
 import static hexlet.code.Engine.printCongratulations;
 import static hexlet.code.Engine.printQuestion;
 import static hexlet.code.Engine.randInt;
@@ -19,9 +18,8 @@ public class EvenGame {
 
             String expected = randomNumber % 2 == 0 ? "yes" : "no";
             String actual = sc.next();
-            printAnswer(actual);
 
-            if (isPlayerLoose(expected, actual, playerName)) {
+            if (isPlayerLose(expected, actual, playerName)) {
                 return;
             }
         }

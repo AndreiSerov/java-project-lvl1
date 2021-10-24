@@ -7,7 +7,7 @@ public class Engine {
     public static final int GAME_COUNTS = 3;
     private static final Random RANDOM =  new Random();
 
-    public static boolean isPlayerLoose(Object expected, Object actual, String playerName) {
+    public static boolean isPlayerLose(Object expected, Object actual, String playerName) {
         if (expected.equals(actual)) {
             System.out.println("Correct!");
             return false;
@@ -24,10 +24,7 @@ public class Engine {
     }
     public static void printQuestion(Object question) {
         System.out.println("Question: " + question);
-    }
-
-    public static void printAnswer(Object answer) {
-        System.out.println("Your answer: " + answer);
+        System.out.print("Your answer: ");
     }
 
     public static int randInt() {
