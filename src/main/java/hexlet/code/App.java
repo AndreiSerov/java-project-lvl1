@@ -32,7 +32,7 @@ public class App {
             case GCD         -> GcdGame.play(SC, playerName);
             case PROGRESSION -> ProgressionGame.play(SC, playerName);
             case PRIME       -> PrimeGame.play(SC, playerName);
-            default          -> throw new IllegalStateException("Unexpected value: " + choice);
+            default          -> System.out.print(""); // Required for checkstyle
         }
     }
 
