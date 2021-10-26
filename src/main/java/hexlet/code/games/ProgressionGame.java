@@ -20,11 +20,7 @@ public class ProgressionGame {
             int[] progression = generateProgression();
             int hiddenNumberIndex = randInt(progression.length);
             int hiddenNumber = progression[hiddenNumberIndex];
-            StringBuilder question = new StringBuilder();
-            for (int number : progression) {
-                question.append(number == hiddenNumber ? ".. " : number + " ");
-            }
-            printQuestion(question);
+            printQuestion(getQuestion(progression, hiddenNumber));
 
             int actual = sc.nextInt();
             if (isPlayerLose(hiddenNumber, actual, playerName)) {
@@ -33,6 +29,14 @@ public class ProgressionGame {
         }
 
         printCongratulations(playerName);
+    }
+
+    private static StringBuilder getQuestion(int[] progression, int hiddenNumber) {
+        StringBuilder question = new StringBuilder();
+        for (int number : progression) {
+            question.append(number == hiddenNumber ? ".. " : number + " ");
+        }
+        return question;
     }
 
     private static int[] generateProgression() {
