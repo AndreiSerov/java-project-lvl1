@@ -27,12 +27,12 @@ public class App {
 
         String playerName = Cli.greet(SC);
         switch (choice) {
-            case EVEN -> EvenGame.play(SC, playerName);
-            case CALC -> CalcGame.play(SC, playerName);
-            case GCD -> GcdGame.play(SC, playerName);
+            case EVEN        -> EvenGame.play(SC, playerName);
+            case CALC        -> CalcGame.play(SC, playerName);
+            case GCD         -> GcdGame.play(SC, playerName);
             case PROGRESSION -> ProgressionGame.play(SC, playerName);
-            case PRIME -> PrimeGame.play(SC, playerName);
-            default -> throw new IllegalStateException("Unexpected value: " + choice);
+            case PRIME       -> PrimeGame.play(SC, playerName);
+            default          -> throw new IllegalStateException("Unexpected value: " + choice);
         }
     }
 
