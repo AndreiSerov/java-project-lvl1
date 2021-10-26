@@ -14,7 +14,7 @@ version = "1.0-SNAPSHOT"
 
 tasks {
     withType<JavaCompile> {
-        options.release.set(17)
+        options.release.set(16)
     }
 
     withType<Checkstyle>().configureEach {

@@ -16,12 +16,12 @@ public class Engine {
             System.out.printf("Let's try again, %s!%n", playerName);
             return true;
         }
-
     }
 
     public static void printCongratulations(String playerName) {
         System.out.printf("Congratulations, %s!%n", playerName);
     }
+
     public static void printQuestion(Object question) {
         System.out.println("Question: " + question);
         System.out.print("Your answer: ");
@@ -34,9 +34,4 @@ public class Engine {
     public static int randInt(int range) {
         return RANDOM.nextInt(range);
     }
-
-    public static int randInt(int start, int end) {
-        return RANDOM.nextInt(start, end);
-    }
-
 }

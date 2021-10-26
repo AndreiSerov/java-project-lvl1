@@ -40,7 +40,7 @@ public class ProgressionGame {
     }
 
     private static int[] generateProgression() {
-        int[] result = new int[randInt(MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE)];
+        int[] result = new int[randInt(MAX_PROGRESSION_SIZE) + MIN_PROGRESSION_SIZE];
         int step = randInt();
         result[0] = step;
         for (int i = 1; i < result.length; i++) {
