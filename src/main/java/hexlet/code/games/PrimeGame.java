@@ -1,30 +1,28 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.isPlayerLose;
-import static hexlet.code.Engine.printCongratulations;
-import static hexlet.code.Engine.printQuestion;
 import static hexlet.code.Engine.randInt;
 
 public class PrimeGame {
 
-    public static void play(Scanner sc, String playerName) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    private static final String RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
+
+    public static void play(Scanner sc) {
         for (int i = 0; i < GAME_COUNTS; i++) {
-            int randomNumber = randInt();
-            printQuestion(randomNumber);
-
-            String expected = isPrime(randomNumber) ? "yes" : "no";
-            String actual = sc.next();
-
-            if (isPlayerLose(expected, actual, playerName)) {
-                return;
-            }
+            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
         }
+        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+    }
 
-        printCongratulations(playerName);
+    private static String[] generateQuestionAndAnswer() {
+        int randomNumber = randInt();
+        String expected = isPrime(randomNumber) ? "yes" : "no";
+        return new String[]{String.valueOf(randomNumber), expected};
     }
 
     private static boolean isPrime(int n) {

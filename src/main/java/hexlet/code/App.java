@@ -12,6 +12,7 @@ public class App {
     private static final Scanner SC = new Scanner(System.in);
 
     private static final int EXIT = 0;
+    private static final int GREET = 1;
     private static final int EVEN = 2;
     private static final int CALC = 3;
     private static final int GCD = 4;
@@ -25,13 +26,13 @@ public class App {
             return;
         }
 
-        String playerName = Cli.greet(SC);
         switch (choice) {
-            case EVEN        -> EvenGame.play(SC, playerName);
-            case CALC        -> CalcGame.play(SC, playerName);
-            case GCD         -> GcdGame.play(SC, playerName);
-            case PROGRESSION -> ProgressionGame.play(SC, playerName);
-            case PRIME       -> PrimeGame.play(SC, playerName);
+            case GREET       -> Cli.greet(SC);
+            case EVEN        -> EvenGame.play(SC);
+            case CALC        -> CalcGame.play(SC);
+            case GCD         -> GcdGame.play(SC);
+            case PROGRESSION -> ProgressionGame.play(SC);
+            case PRIME       -> PrimeGame.play(SC);
             default          -> System.out.print(""); // Required for checkstyle
         }
     }

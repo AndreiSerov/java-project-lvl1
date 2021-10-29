@@ -1,37 +1,71 @@
 package hexlet.code;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Engine {
     private static final int RANDOM_RANGE = 100;
     public static final int GAME_COUNTS = 3;
     private static final Random RANDOM =  new Random();
+    private static String playerName;
 
-    public static boolean isPlayerLose(Object expected, Object actual, String playerName) {
+    public static void play(Scanner sc, String rule, String[][] questionsAndAnswers) {
+        welcomePlayerAndAskHisName();
+        playerName = sc.next();
+        sayHello();
+        printRule(rule);
+        for (int i = 0; i < GAME_COUNTS; i++) {
+            printQuestion(questionsAndAnswers[i][0]);
+            String playerAnswer = sc.next();
+            if (isPlayerLose(questionsAndAnswers[i][1], playerAnswer)) {
+                return;
+            }
+        }
+        printCongratulations();
+    }
+
+    public static int randInt() {
+        return randInt(RANDOM_RANGE);
+    }
+
+    public static int randInt(int range) {
+        return RANDOM.nextInt(range);
+    }
+
+    public static int randInt(int start, int end) {
+        return randInt(end) + start;
+    }
+
+    private static boolean isPlayerLose(Object expected, Object actual) {
         if (expected.equals(actual)) {
             System.out.println("Correct!");
             return false;
         } else {
             System.out.println("'" + actual + "' is wrong answer ;(. Correct answer was '" + expected + "'.");
-            System.out.printf("Let's try again, %s!%n", playerName);
+            System.out.printf("Let's try again, %s!%n", "playerName");
             return true;
         }
     }
 
-    public static void printCongratulations(String playerName) {
+    private static void printCongratulations() {
         System.out.printf("Congratulations, %s!%n", playerName);
     }
 
-    public static void printQuestion(Object question) {
+    private static void printQuestion(Object question) {
         System.out.println("Question: " + question);
         System.out.print("Your answer: ");
     }
 
-    public static int randInt() {
-        return RANDOM.nextInt(RANDOM_RANGE);
+    private static void welcomePlayerAndAskHisName() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
     }
 
-    public static int randInt(int range) {
-        return RANDOM.nextInt(range);
+    private static void printRule(String rule) {
+        System.out.println(rule);
+    }
+
+    private static void sayHello() {
+        System.out.printf("Hello, %s!%n", playerName);
     }
 }

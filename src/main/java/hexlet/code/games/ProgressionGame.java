@@ -1,34 +1,32 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.isPlayerLose;
-import static hexlet.code.Engine.printCongratulations;
-import static hexlet.code.Engine.printQuestion;
 import static hexlet.code.Engine.randInt;
 
 public class ProgressionGame {
+
+    private static final String RULE = "What number is missing in the progression?";
     public static final int MIN_PROGRESSION_SIZE = 5;
     public static final int MAX_PROGRESSION_SIZE = 11;
+    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
 
-
-
-    public static void play(Scanner sc, String playerName) {
-        System.out.println("What number is missing in the progression?");
+    public static void play(Scanner sc) {
         for (int i = 0; i < GAME_COUNTS; i++) {
-            int[] progression = generateProgression();
-            int hiddenNumberIndex = randInt(progression.length);
-            int hiddenNumber = progression[hiddenNumberIndex];
-            printQuestion(getQuestion(progression, hiddenNumber));
-
-            int actual = sc.nextInt();
-            if (isPlayerLose(hiddenNumber, actual, playerName)) {
-                return;
-            }
+            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
         }
+        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+    }
 
-        printCongratulations(playerName);
+    private static String[] generateQuestionAndAnswer() {
+        int[] progression = generateProgression(MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE);
+        int hiddenNumberIndex = randInt(progression.length);
+        int hiddenNumber = progression[hiddenNumberIndex];
+        StringBuilder question = getQuestion(progression, hiddenNumber);
+        return new String[]{question.toString(), String.valueOf(hiddenNumber)};
     }
 
     private static StringBuilder getQuestion(int[] progression, int hiddenNumber) {
@@ -39,8 +37,8 @@ public class ProgressionGame {
         return question;
     }
 
-    private static int[] generateProgression() {
-        int[] result = new int[randInt(MAX_PROGRESSION_SIZE) + MIN_PROGRESSION_SIZE];
+    private static int[] generateProgression(int start, int end) {
+        int[] result = new int[randInt(start, end)];
         int step = randInt();
         result[0] = step;
         for (int i = 1; i < result.length; i++) {
