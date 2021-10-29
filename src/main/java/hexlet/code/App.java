@@ -28,7 +28,8 @@ public class App {
             case GCD         -> GcdGame.play(SC);
             case PROGRESSION -> ProgressionGame.play(SC);
             case PRIME       -> PrimeGame.play(SC);
-            default          -> System.out.println(); // Cant use break here https://github.com/AndreiSerov/java-project-lvl1/issues/2
+            // Cant use break here https://github.com/AndreiSerov/java-project-lvl1/issues/2
+            default          -> System.out.println();
         }
     }
 
