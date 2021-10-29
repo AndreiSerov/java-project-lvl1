@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class App {
     private static final Scanner SC = new Scanner(System.in);
 
-    private static final int EXIT = 0;
     private static final int GREET = 1;
     private static final int EVEN = 2;
     private static final int CALC = 3;
@@ -22,10 +21,6 @@ public class App {
     public static void main(String[] args) {
         printMenu();
         int choice = SC.nextInt();
-        if (choice == EXIT) {
-            return;
-        }
-
         switch (choice) {
             case GREET       -> Cli.greet(SC);
             case EVEN        -> EvenGame.play(SC);
@@ -33,7 +28,7 @@ public class App {
             case GCD         -> GcdGame.play(SC);
             case PROGRESSION -> ProgressionGame.play(SC);
             case PRIME       -> PrimeGame.play(SC);
-            default          -> System.out.print(""); // Required for checkstyle
+            default          -> System.out.println(); // Cant use break here https://github.com/AndreiSerov/java-project-lvl1/issues/2
         }
     }
 

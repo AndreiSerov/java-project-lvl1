@@ -29,7 +29,7 @@ public class CalcGame {
             case '+' -> x + y;
             case '-' -> x - y;
             case '*' -> x * y;
-            default  -> throw new IllegalStateException("Unexpected value: " + sign);
+            default  -> '+'; // i dont know what is Exceptions yet =)
         };
         return new String[]{format("%d %s %d", x, sign, y), String.valueOf(expected)};
     }

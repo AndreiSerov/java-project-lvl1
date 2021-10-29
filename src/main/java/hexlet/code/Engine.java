@@ -42,7 +42,7 @@ public class Engine {
             return false;
         } else {
             System.out.println("'" + actual + "' is wrong answer ;(. Correct answer was '" + expected + "'.");
-            System.out.printf("Let's try again, %s!%n", "playerName");
+            System.out.printf("Let's try again, %s!%n", playerName);
             return true;
         }
     }
