@@ -5,7 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.randInt;
+import static hexlet.code.Engine.RANDOM_RANGE;
+import static hexlet.code.Utils.randInt;
 import static java.lang.String.format;
 
 public class GcdGame {
@@ -21,8 +22,8 @@ public class GcdGame {
     }
 
     private static String[] generateQuestionAndAnswer() {
-        int x = randInt();
-        int y = randInt();
+        int x = randInt(RANDOM_RANGE);
+        int y = randInt(RANDOM_RANGE);
         int expected = calculateGcd(x, y);
         return new String[]{format("%d %d", x, y), String.valueOf(expected)};
     }

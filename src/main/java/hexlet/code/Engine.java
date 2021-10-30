@@ -4,9 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int RANDOM_RANGE = 100;
+    public static final int RANDOM_RANGE = 100;
     public static final int GAME_COUNTS = 3;
-    private static final Random RANDOM =  new Random();
     private static String playerName;
 
     public static void play(Scanner sc, String rule, String[][] questionsAndAnswers) {
@@ -22,18 +21,6 @@ public class Engine {
             }
         }
         printCongratulations();
-    }
-
-    public static int randInt() {
-        return randInt(RANDOM_RANGE);
-    }
-
-    public static int randInt(int range) {
-        return RANDOM.nextInt(range);
-    }
-
-    public static int randInt(int start, int end) {
-        return randInt(end) + start;
     }
 
     private static boolean isPlayerLose(Object expected, Object actual) {

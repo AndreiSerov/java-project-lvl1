@@ -5,7 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.randInt;
+import static hexlet.code.Engine.RANDOM_RANGE;
+import static hexlet.code.Utils.randInt;
 
 public class ProgressionGame {
 
@@ -39,7 +40,7 @@ public class ProgressionGame {
 
     private static int[] generateProgression(int start, int end) {
         int[] result = new int[randInt(start, end)];
-        int step = randInt();
+        int step = randInt(RANDOM_RANGE);
         result[0] = step;
         for (int i = 1; i < result.length; i++) {
             result[i] = step + result[i - 1];

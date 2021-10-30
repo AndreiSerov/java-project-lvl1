@@ -5,7 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.randInt;
+import static hexlet.code.Engine.RANDOM_RANGE;
+import static hexlet.code.Utils.randInt;
 
 public class PrimeGame {
 
@@ -20,7 +21,7 @@ public class PrimeGame {
     }
 
     private static String[] generateQuestionAndAnswer() {
-        int randomNumber = randInt();
+        int randomNumber = randInt(RANDOM_RANGE);
         String expected = isPrime(randomNumber) ? "yes" : "no";
         return new String[]{String.valueOf(randomNumber), expected};
     }

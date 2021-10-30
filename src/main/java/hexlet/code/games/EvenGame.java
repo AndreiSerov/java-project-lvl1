@@ -5,7 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.GAME_COUNTS;
-import static hexlet.code.Engine.randInt;
+import static hexlet.code.Engine.RANDOM_RANGE;
+import static hexlet.code.Utils.randInt;
 
 public class EvenGame {
 
@@ -20,7 +21,7 @@ public class EvenGame {
     }
 
     private static String[] generateQuestionAndAnswer() {
-        int randomNumber = randInt();
+        int randomNumber = randInt(RANDOM_RANGE);
         String expected = randomNumber % 2 == 0 ? "yes" : "no";
         return new String[]{String.valueOf(randomNumber), expected};
     }
