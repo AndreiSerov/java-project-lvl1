@@ -11,13 +11,13 @@ import static hexlet.code.Utils.randInt;
 public class EvenGame {
 
     private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
 
     public static void play(Scanner sc) {
+        String[][] questionsAndAnswers = new String[GAME_COUNTS][2]; // game
         for (int i = 0; i < GAME_COUNTS; i++) {
-            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
+            questionsAndAnswers[i] = generateQuestionAndAnswer();
         }
-        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+        Engine.play(sc, RULE, questionsAndAnswers);
     }
 
     private static String[] generateQuestionAndAnswer() {

@@ -12,13 +12,13 @@ import static java.lang.String.format;
 public class GcdGame {
 
     private static final String RULE = "Find the greatest common divisor of given numbers.";
-    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
 
     public static void play(Scanner sc) {
+        String[][] questionsAndAnswers = new String[GAME_COUNTS][2];
         for (int i = 0; i < GAME_COUNTS; i++) {
-            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
+            questionsAndAnswers[i] = generateQuestionAndAnswer();
         }
-        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+        Engine.play(sc, RULE, questionsAndAnswers);
     }
 
     private static String[] generateQuestionAndAnswer() {

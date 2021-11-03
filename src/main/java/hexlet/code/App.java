@@ -9,6 +9,7 @@ import hexlet.code.games.ProgressionGame;
 import java.util.Scanner;
 
 public class App {
+    // One scanner for the whole app. It means it keeps one memory address which produce better performance
     private static final Scanner SC = new Scanner(System.in);
 
     private static final int GREET = 1;

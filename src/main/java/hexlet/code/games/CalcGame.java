@@ -13,25 +13,34 @@ public class CalcGame {
 
     private static final String RULE = "What is the result of the expression?";
     private static final char[] SIGNS = new char[] {'+', '-', '*'};
-    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
 
     public static void play(Scanner sc) {
+        String[][] questionsAndAnswers = new String[GAME_COUNTS][2];
         for (int i = 0; i < GAME_COUNTS; i++) {
-            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
+            questionsAndAnswers[i] = generateQuestionAndAnswer();
         }
-        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+        Engine.play(sc, RULE, questionsAndAnswers);
     }
 
     private static String[] generateQuestionAndAnswer() {
         int x = randInt(RANDOM_RANGE);
         int y = randInt(RANDOM_RANGE);
         char sign = SIGNS[randInt(SIGNS.length)];
-        int expected = switch (sign) {
-            case '+' -> x + y;
-            case '-' -> x - y;
-            case '*' -> x * y;
-            default  -> '+'; // i dont know what is Exceptions yet =)
-        };
+        int expected = 0;
+        switch (sign) {
+            case '+':
+                expected = x + y;
+                break;
+            case '-':
+                expected = x - y;
+                break;
+            case '*':
+                expected = x * y;
+                break;
+            default:
+                System.out.println("Wrong sign");
+                break;
+        }
         return new String[]{format("%d %s %d", x, sign, y), String.valueOf(expected)};
     }
 }

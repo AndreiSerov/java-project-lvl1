@@ -13,17 +13,18 @@ public class ProgressionGame {
     private static final String RULE = "What number is missing in the progression?";
     public static final int MIN_PROGRESSION_SIZE = 5;
     public static final int MAX_PROGRESSION_SIZE = 11;
-    private static final String[][] QUESTIONS_AND_ANSWERS = new String[GAME_COUNTS][2];
 
     public static void play(Scanner sc) {
+        String[][] questionsAndAnswers = new String[GAME_COUNTS][2];
         for (int i = 0; i < GAME_COUNTS; i++) {
-            QUESTIONS_AND_ANSWERS[i] = generateQuestionAndAnswer();
+            questionsAndAnswers[i] = generateQuestionAndAnswer();
         }
-        Engine.play(sc, RULE, QUESTIONS_AND_ANSWERS);
+        Engine.play(sc, RULE, questionsAndAnswers);
     }
 
     private static String[] generateQuestionAndAnswer() {
-        int[] progression = generateProgression(MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE);
+        int[] progression = generateProgression(
+            MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE, randInt(RANDOM_RANGE));
         int hiddenNumberIndex = randInt(progression.length);
         int hiddenNumber = progression[hiddenNumberIndex];
         StringBuilder question = getQuestion(progression, hiddenNumber);
@@ -38,9 +39,8 @@ public class ProgressionGame {
         return question;
     }
 
-    private static int[] generateProgression(int start, int end) {
+    private static int[] generateProgression(int start, int end, int step) {
         int[] result = new int[randInt(start, end)];
-        int step = randInt(RANDOM_RANGE);
         result[0] = step;
         for (int i = 1; i < result.length; i++) {
             result[i] = step + result[i - 1];
