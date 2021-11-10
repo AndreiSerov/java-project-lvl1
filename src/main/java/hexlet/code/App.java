@@ -21,7 +21,7 @@ public class App {
         printMenu();
         int choice = SC.nextInt();
         switch (choice) {
-            case GREET       -> Cli.greet(SC);
+            case GREET       -> Cli.greet();
             case EVEN        -> EvenGame.play();
             case CALC        -> CalcGame.play();
             case GCD         -> GcdGame.play();
