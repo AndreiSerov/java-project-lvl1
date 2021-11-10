@@ -6,15 +6,9 @@ import hexlet.code.games.GcdGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
-import java.util.Scanner;
+import static hexlet.code.GlobalObjects.SC;
 
 public class App {
-    // One scanner for the whole app. It means it keeps one memory address which produce better performance
-    /* Передача аргумента - использование контракта.
-       если мы захотим получать данные, например из файла или по сети,
-       то движок предоставит нам новый контракт, который мы будем использовать
-     */
-    private static final Scanner SC = new Scanner(System.in);
 
     private static final int GREET = 1;
     private static final int EVEN = 2;
@@ -28,11 +22,11 @@ public class App {
         int choice = SC.nextInt();
         switch (choice) {
             case GREET       -> Cli.greet(SC);
-            case EVEN        -> EvenGame.play(SC);
-            case CALC        -> CalcGame.play(SC);
-            case GCD         -> GcdGame.play(SC);
-            case PROGRESSION -> ProgressionGame.play(SC);
-            case PRIME       -> PrimeGame.play(SC);
+            case EVEN        -> EvenGame.play();
+            case CALC        -> CalcGame.play();
+            case GCD         -> GcdGame.play();
+            case PROGRESSION -> ProgressionGame.play();
+            case PRIME       -> PrimeGame.play();
             // Cant use break here https://github.com/AndreiSerov/java-project-lvl1/issues/2
             default          -> System.out.println();
         }

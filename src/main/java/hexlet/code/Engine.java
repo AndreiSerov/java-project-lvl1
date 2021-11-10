@@ -1,22 +1,22 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import static hexlet.code.GlobalObjects.SC;
 
 public class Engine {
     public static final int RANDOM_RANGE = 100;
     public static final int GAME_COUNTS = 3;
     // если playerName оставить здесь то он точно не создаст никакой ошибки при многократном запуске игры =)
 
-    public static void play(Scanner sc, String rule, String[][] questionsAndAnswers) {
+    public static void play(String rule, String[][] questionsAndAnswers) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String playerName = sc.next();
+        String playerName = SC.next();
         System.out.printf("Hello, %s!%n", playerName);
         System.out.println(rule);
         for (int i = 0; i < GAME_COUNTS; i++) {
             System.out.println("Question: " + questionsAndAnswers[i][0]);
             System.out.print("Your answer: ");
-            String playerAnswer = sc.next();
+            String playerAnswer = SC.next();
             if (questionsAndAnswers[i][1].equals(playerAnswer)) {
                 System.out.println("Correct!");
             } else {

@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 import static hexlet.code.Engine.GAME_COUNTS;
 import static hexlet.code.Engine.RANDOM_RANGE;
 import static hexlet.code.Utils.randInt;
@@ -12,12 +10,12 @@ public class EvenGame {
 
     private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void play(Scanner sc) {
+    public static void play() {
         String[][] questionsAndAnswers = new String[GAME_COUNTS][2]; // game
         for (int i = 0; i < GAME_COUNTS; i++) {
             questionsAndAnswers[i] = generateQuestionAndAnswer();
         }
-        Engine.play(sc, RULE, questionsAndAnswers);
+        Engine.play(RULE, questionsAndAnswers);
     }
 
     private static String[] generateQuestionAndAnswer() {
