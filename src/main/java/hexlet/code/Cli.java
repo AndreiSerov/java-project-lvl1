@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Scanner;
 
 import static hexlet.code.GlobalObjects.SC;
 
