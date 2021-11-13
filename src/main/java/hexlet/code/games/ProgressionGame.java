@@ -22,6 +22,7 @@ public class ProgressionGame {
 
     private static String[] generateQuestionAndAnswer() {
         int[] progression = generateProgression(
+            randInt(RANDOM_RANGE),
             randInt(MIN_PROGRESSION_SIZE, MAX_PROGRESSION_SIZE),
             randInt(RANDOM_RANGE)
         );
@@ -39,9 +40,9 @@ public class ProgressionGame {
         return question;
     }
 
-    private static int[] generateProgression(int progressionSize, int step) {
+    private static int[] generateProgression(int firstElement, int progressionSize, int step) {
         int[] result = new int[progressionSize];
-        result[0] = randInt(RANDOM_RANGE);
+        result[0] = firstElement;
         for (int i = 1; i < result.length; i++) {
             result[i] = result[i - 1] + step;
         }
